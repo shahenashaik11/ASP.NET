@@ -8,7 +8,9 @@
             <asp:ListItem>ENT</asp:ListItem>
             <asp:ListItem>Radiologist</asp:ListItem>
         </asp:DropDownList>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" Width="124px" />
     </p>
     <p>
-        &nbsp;</p>
+        <asp:Label ID="Label4" runat="server" Text="LabelDoctor"></asp:Label>
+    </p>
 </asp:Content>

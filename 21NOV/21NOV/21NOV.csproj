@@ -124,6 +124,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="NewForm.aspx" />
     <Content Include="Patient.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Doctor.aspx" />
@@ -188,6 +189,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="NewForm.aspx.cs">
+      <DependentUpon>NewForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewForm.aspx.designer.cs">
+      <DependentUpon>NewForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Patient.aspx.cs">
       <DependentUpon>Patient.aspx</DependentUpon>
