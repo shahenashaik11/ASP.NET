@@ -14,9 +14,9 @@
     
     <div class="row"  style="background-color:cadetblue">
         <div class="col-md-4" style="background-color:palevioletred">
-            <h2>Appointments</h2>
+            <h2>User Details</h2>
             <p>
-                Appointments regarding patients is shown here:
+                Enter the User Details:
                 <asp:TextBox ID="TextBox4" runat="server" OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
             </p>
             <p>
