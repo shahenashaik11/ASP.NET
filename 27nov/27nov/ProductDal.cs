@@ -10,7 +10,7 @@ namespace _27nov
     public class ProductDal
     {
         public string Name { get; set; }
-        
+
 
 
         public bool AddRecord()
@@ -125,7 +125,7 @@ namespace _27nov
 
                 {
 
-                    //conn.Close();
+                    conn.Close();
 
                 }
 
@@ -138,158 +138,138 @@ namespace _27nov
         {
             DataTable dt = new DataTable();
             bool isSuccess = true;
-            
-
-            using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=WebAuthentication;Integrated Security=True;Connect Timeout=15;Encrypt=False;Packet Size=4096"))
-
-            {
-                
-                try
-                                                                                                                                        
-
-                {
 
 
-                    
-                    DataSet dataSet = new DataSet();
-                     SqlDataAdapter dataAdapter;
-                    
-                    dataAdapter = new SqlDataAdapter("select * from ProductDetails", conn);
-                    dataSet = new DataSet();
-                    dataAdapter.Fill(dataSet);
-                    var newRow = dataSet.Tables[0].NewRow();
-                    newRow["Name"] = "keyboard";
-                    dataSet.Tables[0].Rows.Add(newRow);
-                    new SqlCommandBuilder(dataAdapter);
-                    dataAdapter.Update(dataSet);
+            //using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=WebAuthentication;Integrated Security=True;Connect Timeout=15;Encrypt=False;Packet Size=4096"))
 
-
-                    //cmd = new SqlCommand("select * from ProductDetails", conn);
-                    //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    //dt = new DataTable();
-                    //sda.Fill(dt);
-                    //cmd.CommandType = CommandType.StoredProcedure;
-                    //cmd.Parameters.Add(new SqlParameter("@Name", "Name"));
-
-                    //SqlDataReader reader = cmd.ExecuteReader();
-                    //while (reader.Read())
-                    //{
-                    //    Name += reader["Name"].ToString() + "<br/>";
-
-                    //}
-
-                }
-
-                catch (Exception ex)
-
-                {
-
-
-
-                    isSuccess = false;
-
-                }
-
-                finally
-
-                {
-
-                  
-
-                }
-
-                return isSuccess;
-
-            }
-        }
-        public bool UpdateRecord()
-        {
-            SqlCommandBuilder cmdBuilder;
-            DataSet ds;
-            bool isSuccess = true;
-            using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=WebAuthentication;Integrated Security=True;Connect Timeout=15;Encrypt=False;Packet Size=4096"))
-
-
-
-            {
-
-
-
-                //SqlCommand cmd = new SqlCommand("select * from Products", conn); 
-
-
-
-               // SqlDataAdapter sqlda = new SqlDataAdapter("select * from Products", conn);
-
-
-
-                //SqlDataAdapter sqlda = new SqlDataAdapter("select * from ProductDetails;select * from AspNetUsers", conn);
-
-
-
-                //cmdBuilder = new SqlCommandBuilder(sqlda);
-                try
-                {
-                     ds = new DataSet();
-
-                    conn.Open();
-                    SqlDataAdapter sqda = new SqlDataAdapter("Select * from ProductDetails", conn);
-                    cmdBuilder = new SqlCommandBuilder(sqda);
-                    sqda.Fill(ds, "ProductDetails");
-                    ds.Tables["ProductDetails"].Rows[0]["Name"] = "pen";
-
-                  
-
-                    sqda.Update(ds, "ProductDetails");
-
-
-                }
-
-
-
+            //{
 
                 //try
+
+
                 //{
 
 
-                //    ds = new DataSet();
-                //    sqlda.Fill(ds);
-                //    ds.Tables[0].Rows[0]["Name"] = "pen";
-                //    DataRow dr = ds.Tables[0].NewRow();
-                //    dr = ds.Tables["Products"].NewRow();
-                //    dr["Name"] = "Tabs";
-                //    ds.Tables[0].Rows.Add(dr);
-                //    //sqlda.Update(ds, ds.Tables[0].ToString());
-                //    sqlda.Update(ds, "Products");
 
+                //    DataSet dataSet = new DataSet();
+                //    SqlDataAdapter dataAdapter;
+
+                //    dataAdapter = new SqlDataAdapter("select * from ProductDetails", conn);
+                //    dataSet = new DataSet();
+                //    dataAdapter.Fill(dataSet);
+                //    var newRow = dataSet.Tables[0].NewRow();
+                //    newRow["Name"] = "keyboard";
+                //    dataSet.Tables[0].Rows.Add(newRow);
+                //    new SqlCommandBuilder(dataAdapter);
+                //    dataAdapter.Update(dataSet);
+
+
+                //    //cmd = new SqlCommand("select * from ProductDetails", conn);
+                //    //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                //    //dt = new DataTable();
+                //    //sda.Fill(dt);
+                //    //cmd.CommandType = CommandType.StoredProcedure;
+                //    //cmd.Parameters.Add(new SqlParameter("@Name", "Name"));
+
+                //    //SqlDataReader reader = cmd.ExecuteReader();
+                //    //while (reader.Read())
+                //    //{
+                //    //    Name += reader["Name"].ToString() + "<br/>";
+
+                //    //}
 
                 //}
-                catch (Exception ex)
+
+
+
+            SqlCommandBuilder cmdBuilder;
+                DataSet ds;
+                
+                using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=WebAuthentication;Integrated Security=True;Connect Timeout=15;Encrypt=False;Packet Size=4096"))
+
+
 
                 {
 
 
 
-                    isSuccess = false;
+                    //SqlCommand cmd = new SqlCommand("select * from Products", conn); 
+
+
+
+                    // SqlDataAdapter sqlda = new SqlDataAdapter("select * from Products", conn);
+
+
+
+                    //SqlDataAdapter sqlda = new SqlDataAdapter("select * from ProductDetails;select * from AspNetUsers", conn);
+
+
+
+                    //cmdBuilder = new SqlCommandBuilder(sqlda);
+                    try
+                    {
+                        ds = new DataSet();
+
+                        conn.Open();
+                        SqlDataAdapter sqda = new SqlDataAdapter("Select * from ProductDetails", conn);
+                        cmdBuilder = new SqlCommandBuilder(sqda);
+                        sqda.Fill(ds, "ProductDetails");
+                        ds.Tables["ProductDetails"].Rows[0]["Name"] = "pen";
+                        ds.Tables["ProductDetails"].Rows[1]["Name"] = "book";
+                        ds.Tables["ProductDetails"].Rows[2][2] = "iphone";
+
+
+
+                        sqda.Update(ds, "ProductDetails");
+
+
+                    }
+
+
+
+
+                    //try
+                    //{
+
+
+                    //    ds = new DataSet();
+                    //    sqlda.Fill(ds);
+                    //    ds.Tables[0].Rows[0]["Name"] = "pen";
+                    //    DataRow dr = ds.Tables[0].NewRow();
+                    //    dr = ds.Tables["Products"].NewRow();
+                    //    dr["Name"] = "Tabs";
+                    //    ds.Tables[0].Rows.Add(dr);
+                    //    //sqlda.Update(ds, ds.Tables[0].ToString());
+                    //    sqlda.Update(ds, "Products");
+
+
+                    //}
+                    catch (Exception ex)
+
+                    {
+
+
+
+                        isSuccess = false;
+
+                    }
+
+                    finally
+
+                    {
+
+
+
+                    }
+
+                    return isSuccess;
+
 
                 }
 
-                finally
-
-                {
-
-
-
-                }
-
-                return isSuccess;
 
 
             }
-
-
-
         }
-    }
-
 }
+

@@ -54,7 +54,12 @@ namespace _27nov
 
         protected void btnupdate_Click(object sender, EventArgs e)
         {
-            p.UpdateRecord();
+          //  p.UpdateRecord();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
