@@ -3,14 +3,14 @@
     <p>
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:GridView ID="GridView1" runat="server"  OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+        <asp:GridView ID="GridView1" runat="server" DataKeyNames="ID" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
             <Columns>
                 <asp:TemplateField HeaderText="Name">
                     <EditItemTemplate>
                         <asp:TextBox ID="TextBoxName" runat="server" Text='<%# Eval("Name") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="LabelName" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                         <asp:Label ID="LabelName" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="ID">

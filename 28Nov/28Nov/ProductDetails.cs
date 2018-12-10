@@ -9,7 +9,7 @@ namespace _28Nov
     {
 
         public string Name;
-        public string Price;
+        public int ID;
 
     }
 }

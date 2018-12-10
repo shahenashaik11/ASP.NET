@@ -2,11 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using _28Nov;
 
 namespace _28Nov
 {
@@ -36,17 +38,17 @@ namespace _28Nov
             BindGridView();
         }
 
+
         public void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             Product product = new Product();
             ProductDetails pd = new ProductDetails();
-            GridViewRow Row = GridView1.Rows[e.RowIndex];
+            GridViewRow row = GridView1.Rows[e.RowIndex];
+            pd.ID = Convert.ToInt16(GridView1.DataKeys[e.RowIndex].Values[0]);
+            pd.Name = (row.FindControl("TextBoxName") as TextBox).Text;
 
-            pd.Name = (Row.FindControl("TextBoxName") as TextBox).Text;
-
-            ProductDAL productDAL = new ProductDAL();
-
-            productDAL.UpdateProduct(product);
+            ProductDAL productdal = new ProductDAL();
+            productdal.UpdateProduct(product);
 
             GridView1.EditIndex = -1;
 

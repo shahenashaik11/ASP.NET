@@ -13,7 +13,7 @@ namespace _28Nov.DAL
         public static string ConnectionString { get; set; }
         public System.Data.DataSet GetProducts()
         {
-            string Query = "select Id,Name from Products";
+            string Query = "select * from ProductDetails";
             SQLManager manager = new SQLManager();
             return manager.GetDataSet(Query);
         }
@@ -24,7 +24,7 @@ namespace _28Nov.DAL
             procParams.Add(new ProcParameters("@ID", product.ID.ToString(), DbType.Int32, ParameterDirection.Input));
             procParams.Add(new ProcParameters("@Name", Name, DbType.String, ParameterDirection.Input));
             SQLManager manager = new SQLManager();
-            isSuccess = manager.UpdateRecord("SelectParam", procParams);
+            isSuccess = manager.UpdateRecord("SelectParams", procParams);
             return isSuccess;
         }
 

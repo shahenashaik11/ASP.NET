@@ -1,0 +1,40 @@
+﻿@model IEnumerable<FirstMVC.Models.Student>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        
+
+        <h1>Student</h1>
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+
+            </tr>
+           
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelitem => item.Id) </td>
+                    <td>@Html.DisplayFor(modelitem => item.Name)</td>
+                </tr>
+            }
+
+
+            
+            
+        </table>
+    </div>
+</body>
+</html>

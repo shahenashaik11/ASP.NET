@@ -38,7 +38,7 @@ namespace _28Nov.DAL
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("SelectParam", conn);
+                    SqlCommand cmd = new SqlCommand("SelectParams", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     //SqlParameter TParam1 = new SqlParameter("@Operation", 3);
                     //TParam1.Direction = ParameterDirection.Input;
@@ -77,7 +77,7 @@ namespace _28Nov.DAL
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(ProcName, conn);
+                SqlCommand cmd = new SqlCommand("SelectParams", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter sadp = new SqlDataAdapter(cmd);
                 sadp.Fill(ds);
